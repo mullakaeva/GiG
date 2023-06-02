@@ -1,0 +1,12 @@
+grakel
+matplotlib
+networkx
+numpy
+optuna
+pandas
+pytorch_lightning
+PyYAML
+requests
+scikit_learn
+scipy==1.8.0
+seaborn

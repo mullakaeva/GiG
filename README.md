@@ -1,5 +1,3 @@
-THE CODE WILL BE ADDED THE NEAREST DAYS. 
-
 # Graph-in-Graph (GiG)
 Learning interpretable latent graphs in the non-Euclidean domain for molecule prediction and healthcare applications. The original code might be found in https://github.com/mullakaeva/GiG_original. Current code is upgraded and maintained for the latest packge versions. 
 
@@ -38,5 +36,7 @@ python main_grid_optuna.py --dataset <dataset_name> --population_level_module_ty
 ```
 Where ```<dataset_name>``` is one of the datasets ```DD, ENZYMES,"NCI1", "PROTEINS_full" ```
 and  ```<model>``` in ``` LGL, LGLKL```, where ``` LGL, LGLKL``` are corresponded for GiG LGL and GiG LGL+NDD
+
+P.S. You can play with the parameters, make the hyperparameters search, or check them from the paper https://authors.elsevier.com/a/1hABr4rfPmE0QX
 
 [1] Federico Errica, Marco Podda, Davide Bacciu, Alessio Micheli: A Fair Comparison of Graph Neural Networks for Graph Classification. Proceedings of the 8th International Conference on Learning Representations (ICLR 2020)

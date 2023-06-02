@@ -1,0 +1,111 @@
+dataset_name: ENZYMES
+paths:
+  dataset_path: data
+  model_path: logs
+model:
+  # GraphInGraph
+  type: GraphInGraph
+  node_level_module:
+    type: GIN
+    GraphConv:
+      layers_sizes: [20]
+    GIN:
+      layers_sizes: [20]
+      hidden_layers_num: 3
+  population_level_module:
+    # LGL, LGLKL
+    type: LGL
+    LGL:
+      layers_sizes: [24, 20]
+    LGLKL:
+      layers_sizes: [ 24, 20 ]
+    DGCNN:
+      k: 10
+      layers_sizes: [128]
+    random:
+      k: 10
+    knn:
+      k: 10
+
+  GNN:
+    # aggr: mean, max, add
+    type: GraphConv
+    GAT:
+      layers_sizes: [20]
+      agg: mean
+    GCN_kipf:
+      layers_sizes: [ 20 ]
+      agg: mean
+    Edgeconv:
+      layers_sizes: [ 20 ]
+      agg: mean
+    GraphConv:
+      layers_sizes: [ 20 ]
+      agg: mean
+    SAGEConv:
+      layers_sizes: [ 20 ]
+      agg: mean
+
+
+  classifier:
+    layers_sizes: [16, 12]
+
+#Define models parameters
+model_parameters:
+  # mean, add. In node-conv
+  pooling: mean
+training_parameters:
+  epochs: 760
+  optimizer:
+    type: adam
+    lr: 1e-2
+  scheduler: ReduceLROnPlateau
+  patience: 500
+  loss:
+    type: CrossEntropyLoss
+    weights: None
+
+data_parameters:
+  input_dim: 21
+  output_dim: 6
+  num_node_features: 21
+  batch_size:
+    train: 100
+    val: 100
+    test: 100
+  splits:
+    type: kfold
+    train: 0.9
+    val: 0.1
+    test: 0.1
+
+LGL:
+  temp: 1e-4
+  theta: 8.0
+  lr_theta_temp: 1e-2
+#  lr_temp: 1e-2
+LGLKL:
+  temp: 1e-4
+  theta: 1.0
+  lr_theta_temp: 1e-2
+  lr_mu_sigma: 1e-2 # should be the same as lr
+  kl_patience: 12
+  target_distribution: normal
+  normal:
+    alpha: 0.003
+    mu: 9.0
+    sigma: 3.0
+  power_law:
+    alpha: 0.3
+    mu: -1.5
+    sigma: 1.0
+DGCNN:
+  k: 10
+
+
+
+
+
+
+
+
