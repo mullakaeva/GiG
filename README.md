@@ -1,5 +1,5 @@
 # Graph-in-Graph (GiG)
-Learning interpretable latent graphs in the non-Euclidean domain for molecule prediction and healthcare applications. The original code might be found in https://github.com/mullakaeva/GiG_original. Current code is upgraded and maintained for the latest packge versions. 
+Learning interpretable latent graphs in the non-Euclidean domain for molecule prediction and healthcare applications. The original code can be found in https://github.com/mullakaeva/GiG_original. Current code is upgraded and maintained for the latest package versions. 
 
 ## Installation
 
